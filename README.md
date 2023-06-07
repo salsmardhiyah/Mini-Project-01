@@ -8,10 +8,12 @@ In this Mini Project, I play a member of an eCommerce company's Data Analytics t
 Before starting data processing, the first step that must be done is to prepare raw data into structured data and ready to be processed. Here's what I do at Data Preparation Stage:
 
 1. Download datasets given
-2. Create a new database and tables for the prepared datasets by adjusting the data type of each column, also arranging Primary Keys and Foreign Keys
+2. Create a new database and tables for the prepared datasets by adjusting the data type of each column, also arranging Primary Keys and Foreign Keys for each table
 3. Importing csv data into the database
 4. Create entity relationships between tables based on the structure in the "Data Relationship"
 
+![Alt text]](https://github.com/salsmardhiyah/Mini-Project-01/blob/main/Data+Relationship.png?raw=true)
+<br>Fig.1. Data Relationship
 
 ```mermaid
 erDiagram
