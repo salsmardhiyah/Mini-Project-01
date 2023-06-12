@@ -167,6 +167,7 @@ temp4 AS(
 	GROUP BY 
 		purchase_year
 )
+-- Combine the information that has been obtained into a single table view --
 SELECT 
 	temp1.purchase_year,
 	temp1.monthly_active_users,
@@ -179,3 +180,110 @@ FROM
 	JOIN temp3 ON temp1.purchase_year = temp3.purchase_year
 	JOIN temp4 ON temp1.purchase_year = temp4.purchase_year
 ;
+
+-- Task 03 : Product Category Analysis --
+-- Create a table that contains total company revenue/revenue information for each year -- 
+CREATE TABLE total_revenue AS
+	SELECT 
+		EXTRACT(YEAR FROM o.order_purchase_timestamp) purchase_year,
+		SUM(oi.price + oi.freight_value) revenue
+	FROM 
+		order_items oi JOIN orders o ON oi.order_id = o.order_id
+	WHERE
+		o.order_status = 'delivered'
+	GROUP BY 
+		purchase_year
+;
+
+-- Create a table that contains information on the total number of cancel orders for each year -- 
+CREATE TABLE canceled_order_year AS
+	SELECT 
+		EXTRACT(YEAR FROM order_purchase_timestamp) purchase_year,
+		COUNT(order_id) canceled_order
+	FROM 
+		orders
+	WHERE
+		order_status = 'canceled'
+	GROUP BY 
+		purchase_year
+;
+
+-- Create a table containing the product category names 
+-- that provide the highest total revenue for each year
+CREATE TABLE top_revenue_category AS(
+	WITH revenue_category AS (
+		SELECT 
+			EXTRACT(YEAR FROM o.order_purchase_timestamp) purchase_year,
+			p.product_category_name,
+			SUM(oi.price + oi.freight_value) revenue,
+			RANK() OVER (
+				PARTITION BY EXTRACT(YEAR FROM o.order_purchase_timestamp)
+				ORDER BY SUM(oi.price + oi.freight_value) DESC
+			) revenue_rank
+		FROM
+			product p
+			JOIN order_items oi ON p.product_id = oi.product_id
+			JOIN orders o ON oi.order_id = o.order_id
+		WHERE
+			o.order_status = 'delivered'
+		GROUP BY 1,2
+	)
+	SELECT 
+		purchase_year,
+		product_category_name,
+		revenue
+	FROM
+		revenue_category
+	WHERE
+		revenue_rank = 1
+)
+;
+
+-- Create a table containing the names of the product categories 
+-- that have the highest number of canceled orders for each year 
+CREATE TABLE most_canceled_category AS(
+	WITH canceled_category AS (
+		SELECT 
+			EXTRACT(YEAR FROM o.order_purchase_timestamp) purchase_year,
+			p.product_category_name,
+			COUNT(o.order_id) total_canceled,
+			RANK() OVER (
+				PARTITION BY EXTRACT(YEAR FROM o.order_purchase_timestamp)
+				ORDER BY COUNT(o.order_id) DESC
+			) canceled_rank
+		FROM
+			product p
+			JOIN order_items oi ON p.product_id = oi.product_id
+			JOIN orders o ON oi.order_id = o.order_id
+		WHERE
+			o.order_status = 'canceled'
+		GROUP BY 1,2
+	)
+	SELECT 
+		purchase_year,
+		product_category_name,
+		total_canceled
+	FROM
+		canceled_category
+	WHERE
+		canceled_rank = 1
+)
+;
+
+-- Combine the information that has been obtained into a single table view --
+SELECT 
+	tr.purchase_year "year",
+	tr.revenue total_revenue,
+	trc.product_category_name most_profitable_category,
+	trc.revenue category_profit,
+	co.canceled_order total_canceled_order,
+	mcc.product_category_name most_canceled_category,
+	mcc.total_canceled canceled_order_category
+FROM 
+	total_revenue tr
+	JOIN top_revenue_category trc ON tr.purchase_year = trc.purchase_year
+	JOIN canceled_order_year co ON tr.purchase_year = co.purchase_year
+	JOIN most_canceled_category mcc ON tr.purchase_year = mcc.purchase_year
+;
+
+-- Task 04 : Analysis of Annual Payment Type Usage --

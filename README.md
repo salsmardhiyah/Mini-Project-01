@@ -3,7 +3,7 @@
 ## Project Background 
 In this Mini Project, I play a member of an eCommerce company's Data Analytics team. This company is one of South America's major platforms for connecting tiny companies with their clients. As a member of the Data Analytics team, I am in charge of analyzing three areas of the company's financial performance. These three factors are client growth, product quality, and payment methods. I will analyze the data provided to create a business performance report on these three aspects.
 
-## Stage 0 : Data Preparation
+## Task 0 : Data Preparation
 Before starting data processing, the first step that must be done is to prepare raw data into structured data and ready to be processed. Here's what I do at Data Preparation Stage:
 
 1. Download datasets given
@@ -12,7 +12,7 @@ Before starting data processing, the first step that must be done is to prepare 
 4. Create entity relationships between tables based on the structure in the "Data Relationship"
 <br>
 
-![Alt text](https://github.com/salsmardhiyah/Mini-Project-01/blob/main/Task-01-Data-Preparation/Data+Relationship.png?raw=true)
+![Alt text](https://github.com/salsmardhiyah/sql-ecommerce-business-performance/blob/main/assets/Data+Relationship.png?raw=true)
 <br>Fig.1. Data Relationship
 
 Below is entity relationship diagram created based on interpretation of Data Relationship:
@@ -98,7 +98,7 @@ erDiagram
 ```
 Fig.2. Entity Relationship Diagram
 
-## Stage 1 : Annual Customer Activity Growth Analysis
+## Task 1 : Annual Customer Activity Growth Analysis
 One of the metrics used to measure eCommerce business performance is customer activity that interacts on the eCommerce platform. In Task 2, I will analyze several metrics related to customer activity such as the number of active customers, the number of new customers, the number of customers who make repeat orders and also the average transactions made by customers every year.
 
 
