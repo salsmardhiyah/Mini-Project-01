@@ -493,8 +493,9 @@ ORDER BY
 </p>
 <p align="center">
   <kbd><img src="assets/payment_dashboard.png"> </kbd> <br>
-  Fig.8. [Annual Payment Type Usage Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
+  Fig.8. Annual Payment Type Usage Dashboard
 </p>
+[Annual Payment Type Usage Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
 
 - Credit Card is the most widely used type of payment with the amount of usage increasing significantly every year. This is made possible by the easy and fast way of using credit cards, so that it is more liked by customers. 
 - Meanwhile, Boleto ranks second with stagnant usage growth from 2017 to 2018. This also happened to the voucher payment method which ranks third of the five methods.
