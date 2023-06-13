@@ -287,3 +287,37 @@ FROM
 ;
 
 -- Task 04 : Analysis of Annual Payment Type Usage --
+-- Displays the total usage of each type of payment at all time, sorted from the favorite --
+SELECT
+	payment_type,
+	COUNT(*) total_payment_type
+FROM
+	order_payments
+GROUP BY
+	1
+ORDER BY
+	2 DESC
+;
+
+-- Displays detailed information on the amount of usage for each type of payment for each year --
+WITH payment_type_year AS(
+	SELECT
+		op.payment_type,
+		EXTRACT(YEAR FROM o.order_purchase_timestamp) purchase_year
+	FROM
+		order_payments op
+		JOIN orders o ON op.order_id = o.order_id
+)
+SELECT
+	payment_type,
+	SUM (CASE WHEN purchase_year = 2016 THEN 1 ELSE 0 END) "2016",
+	SUM (CASE WHEN purchase_year = 2017 THEN 1 ELSE 0 END) "2017",
+	SUM (CASE WHEN purchase_year = 2018 THEN 1 ELSE 0 END) "2018",
+	COUNT(1) total_number
+FROM
+	payment_type_year
+GROUP BY
+	1
+ORDER BY
+	5 DESC
+;
