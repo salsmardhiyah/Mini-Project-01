@@ -308,7 +308,7 @@ FROM
 
 <p align="center">
   <kbd><img src="assets/customer_dashboad.png"> </kbd> <br>
-  Fig.4. [Annual Customer Activity Growth Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
+  Fig.4. <a href="https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93">Annual Customer Activity Growth Dashboard</a>
 </p>
 
 - Even though average monthly active users have experienced a significant increase every year, customers who make repeat orders experienced a slight decrease in 2018
@@ -435,7 +435,7 @@ FROM
 </p>
 <p align="center">
   <kbd><img src="assets/product_dashboard.png"> </kbd> <br>
-  Fig.6. [Annual Product Category Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
+  Fig.6. <a href="https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93">Annual Product Category Dashboard</a>
 </p>
 
 - From year to year, total revenue has increased significantly, but so has the number of canceled orders
@@ -493,9 +493,8 @@ ORDER BY
 </p>
 <p align="center">
   <kbd><img src="assets/payment_dashboard.png"> </kbd> <br>
-  Fig.8. Annual Payment Type Usage Dashboard
+  Fig.8. <a href="https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93">Annual Payment Type Usage Dashboard</a>
 </p>
-[Annual Payment Type Usage Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
 
 - Credit Card is the most widely used type of payment with the amount of usage increasing significantly every year. This is made possible by the easy and fast way of using credit cards, so that it is more liked by customers. 
 - Meanwhile, Boleto ranks second with stagnant usage growth from 2017 to 2018. This also happened to the voucher payment method which ranks third of the five methods.
