@@ -107,7 +107,10 @@ CREATE TABLE IF NOT EXISTS order_payments
 <br>
 
 ![Alt text](https://github.com/salsmardhiyah/sql-ecommerce-business-performance/blob/main/assets/Data+Relationship.png?raw=true)
-<br>Fig.1. Data Relationship
+<br>
+<p align="center">
+Fig.1. Data Relationship
+</p>
 
 Below is entity relationship diagram created based on interpretation of Data Relationship:
 
@@ -190,7 +193,9 @@ erDiagram
     sellers }o--|| geolocations : locates
     customers }o--|| geolocations : locates
 ```
+<p align="center">
 Fig.2. Entity Relationship Diagram
+</p>
 
 ## Task 02 : Annual Customer Activity Growth Analysis
 One of the metrics used to measure eCommerce business performance is customer activity that interacts on the eCommerce platform. In this task, I will analyze several metrics related to customer activity such as the number of active customers, the number of new customers, the number of customers who make repeat orders and also the average transactions made by customers every year.
@@ -295,6 +300,20 @@ FROM
 ;
   ```
 </details>
+
+<p align="center">
+  <kbd><img src="assets/mau_table.png"> </kbd> <br>
+  Fig.3. Annual Customer Activity Growth Table
+</p>
+
+<p align="center">
+  <kbd><img src="assets/customer_dashboad.png"> </kbd> <br>
+  Fig.4. [Annual Customer Activity Growth Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
+</p>
+
+- Even though average monthly active users have experienced a significant increase every year, customers who make repeat orders experienced a slight decrease in 2018
+- The frequency of orders for each customer for each year is still the same, namely once. So it can be concluded that the majority of customers do not repeat orders.
+
 
 ## Task 03 : Annual Product Category Analysis
 ECommerce business performance is of course very closely related to the products available in it. Analyzing the quality of products in eCommerce can provide decisions for developing a better business. In this task, I will analyze the performance of each existing product category and how it relates to the company's revenue.
@@ -410,6 +429,19 @@ FROM
   ```
 </details>
 
+<p align="center">
+  <kbd><img src="assets/revenue_table.png"> </kbd> <br>
+  Fig.5. Annual Product Category Table
+</p>
+<p align="center">
+  <kbd><img src="assets/product_dashboard.png"> </kbd> <br>
+  Fig.6. [Annual Product Category Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
+</p>
+
+- From year to year, total revenue has increased significantly, but so has the number of canceled orders
+- The most profitable product category cumulatively is Health & Beauty. 
+- In 2018, Health & Beauty is the product category with  the most profitable product category and is also the most cumulatively canceled orders at the same period.
+
 ## Task 04 : Annual Payment Type Usage Analysis
 ECommerce businesses generally provide an open-payment-based payment system that allows customers to choose various types of payment available. Analyzing the performance of existing payment types can provide insight to better create strategic partnerships with payment service providers. In this task, I will analyze the types of payments available and look at the changing trends that have occurred over the last few years.
 
@@ -454,3 +486,17 @@ ORDER BY
 ;
   ```
 </details>
+
+<p align="center">
+  <kbd><img src="assets/payment_table.png"> </kbd> <br>
+  Fig.7. Annual Product Category Table
+</p>
+<p align="center">
+  <kbd><img src="assets/payment_dashboard.png"> </kbd> <br>
+  Fig.8. [Annual Payment Type Usage Dashboard](https://lookerstudio.google.com/reporting/658cf2f2-a46a-4e25-9f93-1a1f9c392c93)
+</p>
+
+- Credit Card is the most widely used type of payment with the amount of usage increasing significantly every year. This is made possible by the easy and fast way of using credit cards, so that it is more liked by customers. 
+- Meanwhile, Boleto ranks second with stagnant usage growth from 2017 to 2018. This also happened to the voucher payment method which ranks third of the five methods.
+- Of course, this insight can also be used to increase sales traffic by establishing strategic partnerships with credit card providers, such as collaborating in joint marketing campaigns or promotions. This also can include offering exclusive discounts or gifts to customers using specific credit cards on the platform.
+
